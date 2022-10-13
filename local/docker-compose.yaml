@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  urbit:
+    image: tloncorp/urbit
+    container_name: urbit
+    restart: always
+    ports:
+      - "8080:80"
+      - "34343:34343/udp"
+    volumes:
+      - ./urbit:/urbit
