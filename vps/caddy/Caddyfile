@@ -1,0 +1,5 @@
+# INSERT DNS NAME HERE
+
+example.com {
+  reverse_proxy urbit:80
+}

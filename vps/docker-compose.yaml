@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  urbit:
+    image: tloncorp/urbit
+    container_name: urbit
+    restart: always
+    ports:
+      - "34343:34343/udp"
+    volumes:
+      - ./urbit:/urbit
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    depends_on:
+      - urbit
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - caddy-data:/data
+volumes:
+    caddy-data:
